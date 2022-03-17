@@ -134,16 +134,18 @@ try {
   var _loop = function _loop() {
     var concert = _step.value;
     concert.addEventListener("mouseenter", function () {
-      var p = concert.querySelector("p");
+      var p = concert.querySelector("a>p");
       p.style.color = "#991825";
-      p.style.backgroundColor = " rgba(0, 0, 0, 0.95)";
-      p.style.borderColor = "#991825";
+      p.style.filter = "grayscale(0)";
+      p.style.backgroundColor = " rgba(0, 0, 0, 0.92)";
+      p.style.borderColor = "#991825 ";
+      console.log(p);
     });
     concert.addEventListener("mouseleave", function () {
-      var p = concert.querySelector("p");
-      p.style.color = "rgba(182, 182, 182, 0.296)";
-      p.style.borderColor = "rgba(182, 182, 182, 0.296)";
-      p.style.backgroundColor = "rgba(0, 0, 0, 0)";
+      var p = concert.querySelector("a>p");
+      p.style.color = "rgba(182, 182, 182, 0.296) ";
+      p.style.borderColor = "rgba(182, 182, 182, 0.296) ";
+      p.style.backgroundColor = "rgba(0, 0, 0, 0) ";
     });
   };
 
@@ -183,7 +185,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59050" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56235" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

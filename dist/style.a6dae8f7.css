@@ -1,4 +1,9 @@
 @import url("https://css.gg/chevron-double-down.css");
+@import url("https://css.gg/chevron-left.css");
+@import url("https://css.gg/chevron-right.css");
+@import url("https://css.gg/arrow-right-o.css");
+@import url("https://css.gg/play-button.css");
+@import url("https://css.gg/play-pause.css");
 @import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
 .slide {
   -webkit-animation: slide-top 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate-reverse both;
@@ -152,6 +157,8 @@ a:active {
   position: absolute;
   border: 2px solid rgba(182, 182, 182, 0.296);
   padding: 5px 10px;
+  position: relative;
+  z-index: 5;
 }
 
 #concert1 {
@@ -231,6 +238,65 @@ a:active {
   background-blend-mode: hard-light !important;
 }
 
+#musicGallery {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-image: url("/solo.f25fa6fa.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #0a0808;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  color: #f8ecec;
+  text-align: center;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.player {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.player .leftSide,
+.player .rightSide {
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.player .leftSide,
+.player .rightSide,
+.player .plpause {
+  background-color: #203a56;
+}
+.player .center {
+  width: 95%;
+  position: relative;
+}
+.player .center div > img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+.player .center .plpause {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 13px;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  height: 5%;
+}
+
 @media screen and (min-width: 800px) {
   #aboutInfo + img {
     display: block;
@@ -243,6 +309,14 @@ a:active {
     width: 100%;
     max-width: 700px;
     min-width: 400px;
+  }
+
+  .player {
+    width: 70%;
+    max-width: 900px;
+  }
+  .player .center div > img {
+    height: 70vh;
   }
 }
 

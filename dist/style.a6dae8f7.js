@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\images\\inspire.jpg":[["inspire.3500f696.jpg","images/inspire.jpg"],"images/inspire.jpg"],"./..\\images\\concert.jpg":[["concert.3b26bcdd.jpg","images/concert.jpg"],"images/concert.jpg"],"./..\\images\\panda.jpg":[["panda.67e660b0.jpg","images/panda.jpg"],"images/panda.jpg"],"./..\\images\\concerts\\sum41.jpg":[["sum41.60bc76da.jpg","images/concerts/sum41.jpg"],"images/concerts/sum41.jpg"],"./..\\images\\concerts\\greenday.jpg":[["greenday.4c4e1c4a.jpg","images/concerts/greenday.jpg"],"images/concerts/greenday.jpg"],"./..\\images\\concerts\\theofspring.jpg":[["theofspring.bf38e068.jpg","images/concerts/theofspring.jpg"],"images/concerts/theofspring.jpg"],"./..\\images\\concerts\\riseagainst.jpg":[["riseagainst.0ea2de7e.jpg","images/concerts/riseagainst.jpg"],"images/concerts/riseagainst.jpg"],"./..\\images\\concerts\\skillet.jpg":[["skillet.24b401ff.jpg","images/concerts/skillet.jpg"],"images/concerts/skillet.jpg"],"./..\\images\\concerts\\slipknot.jpg":[["slipknot.9450eab1.jpg","images/concerts/slipknot.jpg"],"images/concerts/slipknot.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./..\\images\\inspire.jpg":[["inspire.3500f696.jpg","images/inspire.jpg"],"images/inspire.jpg"],"./..\\images\\concert.jpg":[["concert.3b26bcdd.jpg","images/concert.jpg"],"images/concert.jpg"],"./..\\images\\panda.jpg":[["panda.67e660b0.jpg","images/panda.jpg"],"images/panda.jpg"],"./..\\images\\concerts\\sum41.jpg":[["sum41.60bc76da.jpg","images/concerts/sum41.jpg"],"images/concerts/sum41.jpg"],"./..\\images\\concerts\\greenday.jpg":[["greenday.4c4e1c4a.jpg","images/concerts/greenday.jpg"],"images/concerts/greenday.jpg"],"./..\\images\\concerts\\theofspring.jpg":[["theofspring.bf38e068.jpg","images/concerts/theofspring.jpg"],"images/concerts/theofspring.jpg"],"./..\\images\\concerts\\riseagainst.jpg":[["riseagainst.0ea2de7e.jpg","images/concerts/riseagainst.jpg"],"images/concerts/riseagainst.jpg"],"./..\\images\\concerts\\skillet.jpg":[["skillet.24b401ff.jpg","images/concerts/skillet.jpg"],"images/concerts/skillet.jpg"],"./..\\images\\concerts\\slipknot.jpg":[["slipknot.9450eab1.jpg","images/concerts/slipknot.jpg"],"images/concerts/slipknot.jpg"],"./..\\images\\solo.jpg":[["solo.f25fa6fa.jpg","images/solo.jpg"],"images/solo.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59050" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56235" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
