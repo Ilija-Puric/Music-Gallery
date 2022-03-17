@@ -148,7 +148,13 @@ a:active {
   align-items: center;
   color: rgba(175, 172, 172, 0.474);
 }
-#events .event #concert1 {
+#events .event a > p {
+  position: absolute;
+  border: 2px solid rgba(182, 182, 182, 0.296);
+  padding: 5px 10px;
+}
+
+#concert1 {
   background-repeat: no-repeat;
   background-image: url("/sum41.60bc76da.jpg");
   background-position: center;
@@ -158,8 +164,9 @@ a:active {
   background-attachment: fixed;
   width: 100%;
   height: 400px;
+  filter: grayscale(1);
 }
-#events .event #concert2 {
+#concert2 {
   background-repeat: no-repeat;
   background-image: url("/greenday.4c4e1c4a.jpg");
   background-position: center;
@@ -169,8 +176,9 @@ a:active {
   background-attachment: fixed;
   width: 100%;
   height: 400px;
+  filter: grayscale(1);
 }
-#events .event #concert3 {
+#concert3 {
   background-repeat: no-repeat;
   background-image: url("/theofspring.bf38e068.jpg");
   background-position: center;
@@ -180,8 +188,9 @@ a:active {
   background-attachment: fixed;
   width: 100%;
   height: 400px;
+  filter: grayscale(1);
 }
-#events .event #concert4 {
+#concert4 {
   background-repeat: no-repeat;
   background-image: url("/riseagainst.0ea2de7e.jpg");
   background-position: center;
@@ -191,8 +200,9 @@ a:active {
   background-attachment: fixed;
   width: 100%;
   height: 400px;
+  filter: grayscale(1);
 }
-#events .event #concert5 {
+#concert5 {
   background-repeat: no-repeat;
   background-image: url("/skillet.24b401ff.jpg");
   background-position: center;
@@ -202,8 +212,9 @@ a:active {
   background-attachment: fixed;
   width: 100%;
   height: 400px;
+  filter: grayscale(1);
 }
-#events .event #concert6 {
+#concert6 {
   background-repeat: no-repeat;
   background-image: url("/slipknot.9450eab1.jpg");
   background-position: center;
@@ -213,11 +224,11 @@ a:active {
   background-attachment: fixed;
   width: 100%;
   height: 400px;
+  filter: grayscale(1);
 }
-#events .event a > p {
-  position: absolute;
-  border: 2px solid rgba(182, 182, 182, 0.296);
-  padding: 5px 10px;
+
+.concert:hover {
+  background-blend-mode: hard-light !important;
 }
 
 @media screen and (min-width: 800px) {
@@ -225,7 +236,7 @@ a:active {
     display: block;
     width: 100%;
     object-fit: cover;
-    height: 500px;
+    height: 100vh;
   }
 
   #aboutInfo {

@@ -91,26 +91,6 @@ a:active {
       color: color.$white-light;
     }
 
-    #concert {
-      &1 {
-        @include image.setConcert(image.$concert1, color.$black-light);
-      }
-      &2 {
-        @include image.setConcert(image.$concert2, color.$black-light);
-      }
-      &3 {
-        @include image.setConcert(image.$concert3, color.$black-light);
-      }
-      &4 {
-        @include image.setConcert(image.$concert4, color.$black-light);
-      }
-      &5 {
-        @include image.setConcert(image.$concert5, color.$black-light);
-      }
-      &6 {
-        @include image.setConcert(image.$concert6, color.$black-light);
-      }
-    }
     a > p {
       // margin-top: -20px;
       // background-color: color.$blue-dark;
@@ -119,6 +99,29 @@ a:active {
       padding: 5px 10px;
     }
   }
+}
+#concert {
+  &1 {
+    @include image.setConcert(image.$concert1, color.$black-light);
+  }
+  &2 {
+    @include image.setConcert(image.$concert2, color.$black-light);
+  }
+  &3 {
+    @include image.setConcert(image.$concert3, color.$black-light);
+  }
+  &4 {
+    @include image.setConcert(image.$concert4, color.$black-light);
+  }
+  &5 {
+    @include image.setConcert(image.$concert5, color.$black-light);
+  }
+  &6 {
+    @include image.setConcert(image.$concert6, color.$black-light);
+  }
+}
+.concert:hover {
+  background-blend-mode: hard-light !important;
 }
 
 @import "media";

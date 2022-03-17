@@ -117,79 +117,45 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"dist/script/script.js":[function(require,module,exports) {
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-  return bundleURL;
-}
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+var concerts = document.querySelectorAll(".event");
+console.log(concerts);
 
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
+var _iterator = _createForOfIteratorHelper(concerts),
+    _step;
 
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
+try {
+  var _loop = function _loop() {
+    var concert = _step.value;
+    concert.addEventListener("mouseenter", function () {
+      var p = concert.querySelector("p");
+      p.style.color = "#991825";
+      p.style.backgroundColor = " rgba(0, 0, 0, 0.95)";
+      p.style.borderColor = "#991825";
+    });
+    concert.addEventListener("mouseleave", function () {
+      var p = concert.querySelector("p");
+      p.style.color = "rgba(182, 182, 182, 0.296)";
+      p.style.borderColor = "rgba(182, 182, 182, 0.296)";
+      p.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    });
   };
 
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
+  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+    _loop();
   }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
+} catch (err) {
+  _iterator.e(err);
+} finally {
+  _iterator.f();
 }
-
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/style.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\images\\inspire.jpg":[["inspire.3500f696.jpg","images/inspire.jpg"],"images/inspire.jpg"],"./..\\images\\concert.jpg":[["concert.3b26bcdd.jpg","images/concert.jpg"],"images/concert.jpg"],"./..\\images\\panda.jpg":[["panda.67e660b0.jpg","images/panda.jpg"],"images/panda.jpg"],"./..\\images\\concerts\\sum41.jpg":[["sum41.60bc76da.jpg","images/concerts/sum41.jpg"],"images/concerts/sum41.jpg"],"./..\\images\\concerts\\greenday.jpg":[["greenday.4c4e1c4a.jpg","images/concerts/greenday.jpg"],"images/concerts/greenday.jpg"],"./..\\images\\concerts\\theofspring.jpg":[["theofspring.bf38e068.jpg","images/concerts/theofspring.jpg"],"images/concerts/theofspring.jpg"],"./..\\images\\concerts\\riseagainst.jpg":[["riseagainst.0ea2de7e.jpg","images/concerts/riseagainst.jpg"],"images/concerts/riseagainst.jpg"],"./..\\images\\concerts\\skillet.jpg":[["skillet.24b401ff.jpg","images/concerts/skillet.jpg"],"images/concerts/skillet.jpg"],"./..\\images\\concerts\\slipknot.jpg":[["slipknot.9450eab1.jpg","images/concerts/slipknot.jpg"],"images/concerts/slipknot.jpg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +359,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.a6dae8f7.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","dist/script/script.js"], null)
+//# sourceMappingURL=/script.e8c8f31d.js.map
