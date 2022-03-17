@@ -117,81 +117,74 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"dist/script/script.js":[function(require,module,exports) {
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-var concerts = document.querySelectorAll(".event");
-var playerBtPlay = document.getElementsByClassName("plpause")[0];
-var playBt = document.getElementsByClassName("play")[0];
-var pauseBt = document.getElementsByClassName("pause")[0];
-var audio = document.getElementsByTagName("audio")[0];
-var imageSongPlaying = document.getElementById("imageSong");
-console.log(concerts);
-console.log(playBt);
-console.log(pauseBt);
-
-var _iterator = _createForOfIteratorHelper(concerts),
-    _step;
-
-try {
-  var _loop = function _loop() {
-    var concert = _step.value;
-    concert.addEventListener("mouseenter", function () {
-      var p = concert.querySelector("a>p");
-      p.style.color = "#991825";
-      p.style.filter = "grayscale(0)";
-      p.style.backgroundColor = " rgba(0, 0, 0, 0.92)";
-      p.style.borderColor = "#991825 ";
-      console.log(p);
-    });
-    concert.addEventListener("mouseleave", function () {
-      var p = concert.querySelector("a>p");
-      p.style.color = "rgba(182, 182, 182, 0.296) ";
-      p.style.borderColor = "rgba(182, 182, 182, 0.296) ";
-      p.style.backgroundColor = "rgba(0, 0, 0, 0) ";
-    });
-  };
-
-  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-    _loop();
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
-} catch (err) {
-  _iterator.e(err);
-} finally {
-  _iterator.f();
+
+  return bundleURL;
 }
 
-var songPlayer = function songPlayer() {
-  if (!playBt.classList.contains("hide")) {
-    pauseBt.classList.remove("hide");
-    playBt.classList.add("hide");
-    audio.play();
-    console.log("play");
-    imageSongPlaying.classList.remove("paused");
-  } else {
-    pauseBt.classList.add("hide");
-    playBt.classList.remove("hide");
-    audio.pause();
-    console.log("pause");
-    imageSongPlaying.classList.add("paused");
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
   }
 
-  console.log(audio);
-};
+  return '/';
+}
 
-playerBtPlay.addEventListener("click", function (e) {
-  console.log(e);
-  console.log(e.target.className);
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+}
 
-  if (e.target.className !== "plpause") {
-    songPlayer();
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
   }
-});
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -395,5 +388,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","dist/script/script.js"], null)
-//# sourceMappingURL=/script.e8c8f31d.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/index.js.map

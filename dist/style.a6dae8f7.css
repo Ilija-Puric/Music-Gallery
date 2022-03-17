@@ -274,7 +274,12 @@ a:active {
 .player .leftSide,
 .player .rightSide,
 .player .plpause {
-  background-color: #203a56;
+  background-color: rgba(22, 21, 19, 0.823);
+}
+.player .leftSide i,
+.player .rightSide i,
+.player .plpause i {
+  padding: 2px;
 }
 .player .center {
   width: 95%;
@@ -290,11 +295,34 @@ a:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 13px;
+  bottom: 12px;
   left: 0px;
   right: 0px;
   margin: 0 auto;
   height: 5%;
+}
+.player .center .plpause .btControl {
+  width: 55px;
+  height: 32px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.player .center .plpause .btControl:hover {
+  background-color: red !important;
+}
+.player audio {
+  position: relative;
+  top: 50px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.paused {
+  filter: grayscale(0.8);
 }
 
 @media screen and (min-width: 800px) {
@@ -312,11 +340,12 @@ a:active {
   }
 
   .player {
-    width: 70%;
-    max-width: 900px;
+    width: 60%;
+    max-width: 1400px;
   }
   .player .center div > img {
     height: 70vh;
+    max-height: 1400px;
   }
 }
 
