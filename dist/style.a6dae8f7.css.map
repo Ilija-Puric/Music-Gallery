@@ -1,0 +1,1 @@
+{"version":3,"sources":["scss\\style.scss"],"names":[],"mappings":"AAGA;EACE;EACA;EACA;;;AAGF;AAAA;EAEE","file":"style.a6dae8f7.css","sourceRoot":"..","sourcesContent":["@use \"colors\";\r\n@use \"fonts\";\r\n\r\n* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody,\r\nhtml {\r\n  min-height: 100vh;\r\n}\r\n"]}
