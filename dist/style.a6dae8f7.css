@@ -37,6 +37,10 @@ html {
   font-family: "Rock Salt", cursive;
 }
 
+h2 {
+  font-size: 1.7em;
+}
+
 main {
   height: 100vh;
   background-repeat: no-repeat;
@@ -92,14 +96,128 @@ main h1 + p {
   gap: 20px;
   margin: 0 20px;
 }
-#aboutUs #aboutInfo h2 {
-  font-size: 1.7em;
-}
 #aboutUs #aboutInfo p {
   font-size: 1.1em;
 }
 #aboutUs img {
   display: none;
+}
+
+a:link {
+  color: #f8ecec;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #161719;
+}
+
+a:active {
+  color: #0a0808;
+}
+
+#events {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-image: url("/panda.67e660b0.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #0a0808;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  color: #f8ecec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding-top: 70px;
+  gap: 50px;
+}
+#events .event {
+  width: 100%;
+  position: relative;
+}
+#events .event a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(175, 172, 172, 0.474);
+}
+#events .event #concert1 {
+  background-repeat: no-repeat;
+  background-image: url("/sum41.60bc76da.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+}
+#events .event #concert2 {
+  background-repeat: no-repeat;
+  background-image: url("/greenday.4c4e1c4a.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+}
+#events .event #concert3 {
+  background-repeat: no-repeat;
+  background-image: url("/theofspring.bf38e068.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+}
+#events .event #concert4 {
+  background-repeat: no-repeat;
+  background-image: url("/riseagainst.0ea2de7e.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+}
+#events .event #concert5 {
+  background-repeat: no-repeat;
+  background-image: url("/skillet.24b401ff.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+}
+#events .event #concert6 {
+  background-repeat: no-repeat;
+  background-image: url("/slipknot.9450eab1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+}
+#events .event a > p {
+  position: absolute;
+  border: 2px solid rgba(182, 182, 182, 0.296);
+  padding: 5px 10px;
 }
 
 @media screen and (min-width: 800px) {

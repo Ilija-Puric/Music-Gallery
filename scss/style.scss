@@ -15,8 +15,10 @@ html {
   font-family: font.$main-font;
 }
 
+h2 {
+  font-size: 1.7em;
+}
 main {
-  height: 100vh;
   @include image.setImage(image.$hero, color.$black-dark);
 
   .containerIntroText {
@@ -39,7 +41,6 @@ main {
 }
 
 #aboutUs {
-  height: 100vh;
   @include image.setImage(image.$concertRed, color.$black-dark);
   @include position.flexRowCC();
 
@@ -48,15 +49,75 @@ main {
     gap: 20px;
     margin: 0 20px;
 
-    h2 {
-      font-size: 1.7em;
-    }
     p {
       font-size: 1.1em;
     }
   }
   img {
     display: none;
+  }
+}
+
+a:link {
+  color: color.$white;
+  text-decoration: none;
+}
+a:visited {
+  color: color.$black-light;
+}
+
+a:active {
+  color: color.$black-dark;
+}
+
+#events {
+  @include image.setImage(image.$pandaPlaying, color.$black-dark);
+  @include position.flexColumnCC();
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding-top: 70px;
+  gap: 50px;
+
+  .event {
+    width: 100%;
+    position: relative;
+    a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: color.$white-light;
+    }
+
+    #concert {
+      &1 {
+        @include image.setConcert(image.$concert1, color.$black-light);
+      }
+      &2 {
+        @include image.setConcert(image.$concert2, color.$black-light);
+      }
+      &3 {
+        @include image.setConcert(image.$concert3, color.$black-light);
+      }
+      &4 {
+        @include image.setConcert(image.$concert4, color.$black-light);
+      }
+      &5 {
+        @include image.setConcert(image.$concert5, color.$black-light);
+      }
+      &6 {
+        @include image.setConcert(image.$concert6, color.$black-light);
+      }
+    }
+    a > p {
+      // margin-top: -20px;
+      // background-color: color.$blue-dark;
+      position: absolute;
+      border: 2px solid rgba(182, 182, 182, 0.296);
+      padding: 5px 10px;
+    }
   }
 }
 
