@@ -1,0 +1,17 @@
+@mixin displayFlex {
+  display: flex;
+}
+
+@mixin flexColumnCC {
+  @include displayFlex();
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexRowCC {
+  @include displayFlex();
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

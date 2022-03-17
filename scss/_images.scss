@@ -1,0 +1,24 @@
+@use "colors";
+@import url("https://css.gg/chevron-double-down.css");
+
+$concertRed: url("../images/concert.jpg");
+$concert: url("../images/concert2.jpg");
+$hero: url("../images/inspire.jpg");
+$pandaPlaying: url("../images/panda.jpg");
+$solo: url("../images/solo.jpg");
+
+@mixin setImage($image, $color) {
+  background-repeat: no-repeat;
+  background-image: $image;
+  background-position: center;
+  background-size: cover;
+  background-color: $color;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+
+  @if (lightness($color) <90) {
+    color: colors.$white;
+  } @else {
+    color: colors.$black-dark;
+  }
+}

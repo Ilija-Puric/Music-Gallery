@@ -1,6 +1,8 @@
-@use "colors";
-@use "fonts";
-
+@use "colors" as color;
+@use "images" as image;
+@use "fonts" as font;
+@use "positions" as position;
+@use "animations";
 * {
   margin: 0;
   padding: 0;
@@ -10,4 +12,52 @@
 body,
 html {
   min-height: 100vh;
+  font-family: font.$main-font;
 }
+
+main {
+  height: 100vh;
+  @include image.setImage(image.$hero, color.$black-dark);
+
+  .containerIntroText {
+    height: 100vh;
+    @include position.flexColumnCC();
+  }
+  h1,
+  p {
+    text-align: center;
+  }
+  h1 {
+    font-size: 4rem;
+    text-decoration: line-through;
+  }
+  h1 + p {
+    font-size: 1.2rem;
+    font-variant: small-caps;
+    padding-bottom: 10px;
+  }
+}
+
+#aboutUs {
+  height: 100vh;
+  @include image.setImage(image.$concertRed, color.$black-dark);
+  @include position.flexRowCC();
+
+  #aboutInfo {
+    @include position.flexColumnCC();
+    gap: 20px;
+    margin: 0 20px;
+
+    h2 {
+      font-size: 1.7em;
+    }
+    p {
+      font-size: 1.1em;
+    }
+  }
+  img {
+    display: none;
+  }
+}
+
+@import "media";
