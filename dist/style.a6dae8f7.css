@@ -235,7 +235,8 @@ a:active {
 }
 
 .concert:hover {
-  background-blend-mode: hard-light !important;
+  filter: grayscale(0) !important;
+  background-color: rgba(41, 41, 41, 0.445) !important;
 }
 
 #musicGallery {
