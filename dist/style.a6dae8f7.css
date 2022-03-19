@@ -2,9 +2,15 @@
 @import url("https://css.gg/chevron-left.css");
 @import url("https://css.gg/chevron-right.css");
 @import url("https://css.gg/arrow-right-o.css");
-@import url("https://css.gg/play-button.css");
+@import url("https://css.gg/play-button-o.css");
+@import url("https://css.gg/play-pause-o.css");
 @import url("https://css.gg/play-pause.css");
 @import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+.gg-play-button-o,
+.gg-play-pause-o {
+  width: 50px;
+}
+
 .slide {
   -webkit-animation: slide-top 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate-reverse both;
   animation: slide-top 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate-reverse both;
@@ -240,6 +246,13 @@ a:active {
 }
 
 #musicGallery {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+#musicGalleryContainer {
   height: 100vh;
   background-repeat: no-repeat;
   background-image: url("/solo.f25fa6fa.jpg");
@@ -249,73 +262,44 @@ a:active {
   background-blend-mode: overlay;
   background-attachment: fixed;
   color: #f8ecec;
-  text-align: center;
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: fit-content !important;
+  padding: 20px;
 }
 
-.player {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+.tittleGallery {
+  text-align: center;
 }
-.player .leftSide,
-.player .rightSide {
-  height: 10%;
+
+.songContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(24, 24, 24, 0.385);
+  transition: background-color 0.3s linear;
+}
+.songContainer div {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
-.player .leftSide,
-.player .rightSide,
-.player .plpause {
-  background-color: rgba(22, 21, 19, 0.823);
-}
-.player .leftSide i,
-.player .rightSide i,
-.player .plpause i {
-  padding: 2px;
-}
-.player .center {
-  width: 95%;
-  position: relative;
-}
-.player .center div > img {
-  width: 100%;
-  height: 50vh;
+.songContainer .coverPic {
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
-.player .center .plpause {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 12px;
-  left: 0px;
-  right: 0px;
-  margin: 0 auto;
-  height: 5%;
+.songContainer .bandName {
+  font-size: 0.9rem;
+  font-weight: bolder;
 }
-.player .center .plpause .btControl {
-  width: 55px;
-  height: 32px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.songContainer .songName {
+  font-size: 1rem;
 }
-.player .center .plpause .btControl:hover {
-  background-color: red !important;
-}
-.player audio {
-  position: relative;
-  top: 50px;
+
+.songContainer:hover {
+  background-color: rgba(182, 34, 34, 0.967);
+  cursor: pointer;
 }
 
 .hide {
@@ -326,7 +310,12 @@ a:active {
   filter: grayscale(0.8);
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1200px) {
+  #musicGallery {
+    padding: 30px 12% !important;
+  }
+}
+@media screen and (min-width: 854px) {
   #aboutInfo + img {
     display: block;
     width: 100%;
@@ -347,6 +336,15 @@ a:active {
   .player .center div > img {
     height: 70vh;
     max-height: 1400px;
+  }
+
+  #musicGallery {
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  }
+
+  .songContainer div {
+    padding: 20px;
   }
 }
 

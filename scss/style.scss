@@ -130,73 +130,53 @@ a:active {
 }
 
 #musicGallery {
-  @include image.setImage(image.$solo, color.$black-dark);
   text-align: center;
-  padding-top: 20px;
-  @include position.flexColumnCC();
-  // @include position.flexColumnCC();
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
-.player {
-  width: 100%;
-  @include position.flexRowCC();
+#musicGalleryContainer {
+  @include image.setImage(image.$solo, color.$black-dark);
+  height: fit-content !important;
+  padding: 20px;
+}
 
-  .leftSide,
-  .rightSide {
-    height: 10%;
-    @include position.flexColumnCC();
+.tittleGallery {
+  text-align: center;
+}
+
+.songContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(24, 24, 24, 0.385);
+  transition: background-color 0.3s linear;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .coverPic {
+    width: 200px;
+    height: 200px;
+
+    object-fit: cover;
   }
 
-  .leftSide,
-  .rightSide,
-  .plpause {
-    // background-color: color.$blue-dark;
-    background-color: rgba(22, 21, 19, 0.823);
-
-    i {
-      padding: 2px;
-    }
+  .bandName {
+    font-size: 0.9rem;
+    font-weight: bolder;
   }
-  .center {
-    width: 95%;
-    position: relative;
-    div > img {
-      width: 100%;
-      // min-width: 330px;
-      height: 50vh;
-      object-fit: cover;
-    }
-
-    .plpause {
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      bottom: 12px;
-      left: 0px;
-      right: 0px;
-      margin: 0 auto;
-      height: 5%;
-
-      .btControl {
-        width: 55px;
-        height: 32px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        // height: 25px;
-      }
-
-      .btControl:hover {
-        background-color: red !important;
-      }
-    }
+  .songName {
+    font-size: 1rem;
   }
-  audio {
-    // display: none;
-    position: relative;
-    top: 50px;
-  }
+}
+.songContainer:hover {
+  background-color: rgba(182, 34, 34, 0.967);
+  cursor: pointer;
 }
 
 .hide {

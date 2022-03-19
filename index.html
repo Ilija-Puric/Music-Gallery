@@ -72,28 +72,63 @@
             <p>More to come!!!</p>
         </div> -->
     </section>
-    <section id="musicGallery">
-        <h2>Song recommendations!</h2>
-        <small style="font-variant: small-caps; margin-bottom: 10px;">Rock never dies!</small>
-        <div class="player">
-            <div class="leftSide">
-                <i class="gg-chevron-left"></i>
-            </div>
-            <div class="center">
-                <div>
-                    <img id="imageSong" src="images/covers/sum41.jpg" alt="cover">
-                    <audio src="audio/pieces.mp3"></audio>
-                </div>
-                <div class="plpause">
-                    <div class="btControl play"><i class=" gg-play-button"></i></div>
-                    <div class="btControl pause hide"><i class=" gg-play-pause "></i></div>
-                </div>
-            </div>
-            <div class="rightSide">
-                <i class="gg-chevron-right"></i>
-            </div>
+
+    <section id="musicGalleryContainer">
+        <div class="tittleGallery">
+            <h2>Song recommendations!</h2>
+            <small style="font-variant: small-caps; margin-bottom: 10px;">Rock never dies!</small>
         </div>
-        <!-- Bukvalno music player da napravim koji pusta muziku on click -->
+        <section id="musicGallery">
+            <div class="songContainer">
+                <img src="images/covers/sum41.jpg" alt="Sum41 cover album" class="coverPic">
+                <div>
+                    <p class="bandName">Sum41</p>
+                    <p class="songName">Pieces</p>
+                    <i class="gg-play-button-o"></i>
+                </div>
+            </div>
+            <div class="songContainer">
+                <img src="images/covers/oasis.jpg" alt="Oasis cover album" class="coverPic">
+                <div>
+                    <p class="bandName">Oasis</p>
+                    <p class="songName">Wonderwall</p>
+                    <i class="gg-play-button-o"></i>
+                </div>
+            </div>
+            <div class="songContainer">
+                <img src="images/covers/greenday.jpg" alt="Green Day cover album" class="coverPic">
+                <div>
+                    <p class="bandName">Green Day</p>
+                    <p class="songName">Brainstew</p>
+                    <i class="gg-play-button-o"></i>
+                </div>
+            </div>
+            <div class="songContainer">
+                <img src="images/covers/paparoach.jpg" alt="Papa Roach cover album" class="coverPic">
+                <div>
+                    <p class="bandName">Papa Roach</p>
+                    <p class="songName">Last Resort</p>
+                    <i class="gg-play-button-o"></i>
+                </div>
+            </div>
+            <div class="songContainer">
+                <img src="images/covers/rhcp.jpg" alt="RHCP cover album" class="coverPic">
+                <div>
+                    <p class="bandName">RHCP</p>
+                    <p class="songName">Snow</p>
+                    <i class="gg-play-pause-o"></i>
+                </div>
+            </div>
+            <div class="songContainer">
+                <img src="images/covers/skillet.jpg" alt="Skillet cover album" class="coverPic">
+                <div>
+                    <p class="bandName">Skillet</p>
+                    <p class="songName">Comatose</p>
+                    <i class="gg-play-button-o"></i>
+                </div>
+            </div>
+            <!-- Bukvalno music player da napravim koji pusta muziku on click -->
+        </section>
     </section>
     <script src="dist/script/script.js"></script>
 </body>

@@ -1,9 +1,14 @@
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1200px) {
+  #musicGallery {
+    padding: 30px 12% !important;
+  }
+}
+
+@media screen and (min-width: 854px) {
   #aboutInfo + img {
     display: block;
     width: 100%;
     object-fit: cover;
-    // height: 500px;
     height: 100vh;
   }
   #aboutInfo {
@@ -21,5 +26,15 @@
         max-height: 1400px;
       }
     }
+  }
+
+  #musicGallery {
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    // padding: 30px;
+  }
+
+  .songContainer div {
+    padding: 20px;
   }
 }

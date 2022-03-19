@@ -3,7 +3,8 @@
 @import url("https://css.gg/chevron-left.css");
 @import url("https://css.gg/chevron-right.css");
 @import url("https://css.gg/arrow-right-o.css");
-@import url("https://css.gg/play-button.css");
+@import url("https://css.gg/play-button-o.css");
+@import url("https://css.gg/play-pause-o.css");
 @import url("https://css.gg/play-pause.css");
 
 $concertRed: url("../images/concert.jpg");
@@ -47,4 +48,9 @@ $concert6: url("../images/concerts/slipknot.jpg");
   height: 400px;
 
   filter: grayscale(1);
+}
+
+.gg-play-button-o,
+.gg-play-pause-o {
+  width: 50px;
 }

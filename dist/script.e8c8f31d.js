@@ -125,14 +125,6 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 var concerts = document.querySelectorAll(".event");
-var playerBtPlay = document.getElementsByClassName("plpause")[0];
-var playBt = document.getElementsByClassName("play")[0];
-var pauseBt = document.getElementsByClassName("pause")[0];
-var audio = document.getElementsByTagName("audio")[0];
-var imageSongPlaying = document.getElementById("imageSong");
-console.log(concerts);
-console.log(playBt);
-console.log(pauseBt);
 
 var _iterator = _createForOfIteratorHelper(concerts),
     _step;
@@ -165,32 +157,39 @@ try {
   _iterator.f();
 }
 
-var songPlayer = function songPlayer() {
-  if (!playBt.classList.contains("hide")) {
-    pauseBt.classList.remove("hide");
-    playBt.classList.add("hide");
-    audio.play();
-    console.log("play");
-    imageSongPlaying.classList.remove("paused");
-  } else {
-    pauseBt.classList.add("hide");
-    playBt.classList.remove("hide");
-    audio.pause();
-    console.log("pause");
-    imageSongPlaying.classList.add("paused");
+var songs = document.getElementsByClassName("songContainer");
+var buttonsPlay = document.querySelectorAll(".songContainer > div i");
+
+var _iterator2 = _createForOfIteratorHelper(songs),
+    _step2;
+
+try {
+  var _loop2 = function _loop2() {
+    var song = _step2.value;
+    song.addEventListener("click", function () {
+      var button = song.getElementsByTagName("i")[0];
+      console.log(button);
+      console.log(song);
+      console.log("------------------");
+
+      if (button.classList.contains("gg-play-button-o")) {
+        button.classList.remove("gg-play-button-o");
+        button.classList.add("gg-play-pause-o");
+      } else {
+        button.classList.add("gg-play-button-o");
+        button.classList.remove("gg-play-pause-o");
+      }
+    });
+  };
+
+  for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+    _loop2();
   }
-
-  console.log(audio);
-};
-
-playerBtPlay.addEventListener("click", function (e) {
-  console.log(e);
-  console.log(e.target.className);
-
-  if (e.target.className !== "plpause") {
-    songPlayer();
-  }
-});
+} catch (err) {
+  _iterator2.e(err);
+} finally {
+  _iterator2.f();
+}
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
