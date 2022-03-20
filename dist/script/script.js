@@ -40,6 +40,8 @@ for (const song of songs) {
           .querySelector(" div > p:nth-child(2)")
           .classList.add("playingText");
         console.log(songPlaying);
+        button.nextElementSibling.classList.remove("hide");
+
         if (button.classList.contains("gg-play-button-o")) {
           if (
             songPlaying.src == "audio/" + songName + ".mp3" ||
@@ -51,6 +53,8 @@ for (const song of songs) {
           } else {
             console.log(songName);
             songPlaying.src = "audio/" + songName + ".mp3";
+            songPlaying.currentTime = 2;
+            songPlaying.volume = 0.6;
             playSong(button);
             console.log("Play FIRST TIME");
           }
@@ -61,6 +65,7 @@ for (const song of songs) {
       } else {
         button.classList.add("gg-play-button-o");
         button.classList.remove("gg-play-pause-o");
+        console.log("NOT THE RIGHT SHONG");
         // song.classList.remove("playing");
       }
     }
@@ -69,8 +74,13 @@ for (const song of songs) {
 
 for (const bt of buttonsExit) {
   bt.addEventListener("click", (e) => {
+    songPlaying.src = "";
     songPlayingDiv.classList.remove("playing");
     bt.classList.add("hide");
+    console.log("close window");
+
+    let playButtons = document.querySelectorAll(".songContainer>div>i");
+    playButtons.forEach(addPlaying);
     e.stopPropagation();
   });
 }
@@ -78,8 +88,14 @@ for (const bt of buttonsExit) {
 function playSong(button) {
   button.classList.remove("gg-play-button-o");
   button.classList.add("gg-play-pause-o");
-  console.log(button.nextElementSibling.classList.remove("hide"));
+  console.log("PLAYING MY JAM SKR SKR");
+  button.nextElementSibling.classList.remove("hide");
   songPlaying.play();
+}
+
+function addPlaying(btn) {
+  btn.className = "gg-play-button-o";
+  console.log(btn);
 }
 
 function pauseSong(button) {
