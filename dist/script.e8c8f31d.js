@@ -158,7 +158,9 @@ try {
 
 var songs = document.getElementsByClassName("songContainer");
 var songPlaying = document.getElementById("songToPlay");
-console.log(songPlaying);
+var buttonsExit = document.getElementsByClassName("xIcon");
+var exitBt;
+var songPlayingDiv;
 
 var _iterator2 = _createForOfIteratorHelper(songs),
     _step2;
@@ -168,37 +170,35 @@ try {
     var song = _step2.value;
     song.addEventListener("click", function () {
       for (var i = 0; i < songs.length; i++) {
-        var element = songs[i]; // console.log(element);
-
+        var element = songs[i];
         var button = element.getElementsByTagName("i")[0];
+        element.classList.remove("playing");
 
         if (element == song) {
           var songName = song.querySelector(" div > p:nth-child(2)").textContent.toLowerCase();
           songName = songName.replace(/\s+/g, "");
-          console.log(songName); //     // console.log(song);
-          //     console.log("------------------");
-
-          songPlaying.src = "audio/" + songName + ".mp3";
-          console.log(songPlaying.src);
-          console.log(songPlaying); //     console.log(songPlaying);
-
-          console.log("ITS MY SONG");
+          songPlayingDiv = song;
+          song.querySelector(" div > p:nth-child(2)").classList.add("playingText");
+          console.log(songPlaying);
 
           if (button.classList.contains("gg-play-button-o")) {
-            button.classList.remove("gg-play-button-o");
-            button.classList.add("gg-play-pause-o"); // songPlaying.
-
-            songPlaying.play();
-            console.log("Play");
+            if (songPlaying.src == "audio/" + songName + ".mp3" || songPlaying.src == "http://127.0.0.1:5500/audio/" + songName + ".mp3") {
+              playSong(button);
+              console.log("Play song ONE MORE TIME");
+            } else {
+              console.log(songName);
+              songPlaying.src = "audio/" + songName + ".mp3";
+              playSong(button);
+              console.log("Play FIRST TIME");
+            }
           } else if (button.classList.contains("gg-play-pause-o")) {
-            console.log("Pause");
-            button.classList.add("gg-play-button-o");
-            button.classList.remove("gg-play-pause-o");
-            songPlaying.pause();
+            pauseSong(button);
           }
+
+          song.classList.add("playing");
         } else {
           button.classList.add("gg-play-button-o");
-          button.classList.remove("gg-play-pause-o");
+          button.classList.remove("gg-play-pause-o"); // song.classList.remove("playing");
         }
       }
     });
@@ -212,6 +212,47 @@ try {
 } finally {
   _iterator2.f();
 }
+
+var _iterator3 = _createForOfIteratorHelper(buttonsExit),
+    _step3;
+
+try {
+  var _loop3 = function _loop3() {
+    var bt = _step3.value;
+    bt.addEventListener("click", function (e) {
+      songPlayingDiv.classList.remove("playing");
+      bt.classList.add("hide");
+      e.stopPropagation();
+    });
+  };
+
+  for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+    _loop3();
+  }
+} catch (err) {
+  _iterator3.e(err);
+} finally {
+  _iterator3.f();
+}
+
+function playSong(button) {
+  button.classList.remove("gg-play-button-o");
+  button.classList.add("gg-play-pause-o");
+  console.log(button.nextElementSibling.classList.remove("hide"));
+  songPlaying.play();
+}
+
+function pauseSong(button) {
+  button.classList.add("gg-play-button-o");
+  button.classList.remove("gg-play-pause-o");
+  songPlaying.pause();
+}
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    songPlayingDiv.classList.remove("playing");
+  }
+});
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -240,7 +281,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61752" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63385" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

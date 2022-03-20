@@ -9,6 +9,8 @@
 .gg-play-button-o,
 .gg-play-pause-o {
   width: 50px;
+  border-radius: 0px;
+  margin-top: 5px;
 }
 
 .slide {
@@ -46,6 +48,7 @@ body,
 html {
   min-height: 100vh;
   font-family: "Rock Salt", cursive;
+  scroll-behavior: smooth;
 }
 
 h2 {
@@ -82,6 +85,9 @@ main h1 + p {
   font-size: 1.2rem;
   font-variant: small-caps;
   padding-bottom: 10px;
+}
+main #mainNav {
+  color: #f8ecec;
 }
 
 #aboutUs {
@@ -301,21 +307,56 @@ a:active {
   font-size: 1rem;
 }
 
-.songContainer:hover {
-  background-color: rgba(182, 34, 34, 0.967);
-  cursor: pointer;
-}
-
 .hide {
   display: none !important;
 }
 
-.paused {
-  filter: grayscale(0.8);
+.songContainer:hover {
+  background-color: #383636 !important;
+  cursor: pointer;
 }
 
-.songContainer > div > p:nth-child(2) {
-  background-color: red !important;
+.songContainer:nth-child(odd) {
+  background-color: rgba(182, 34, 34, 0.967);
+}
+
+.songContainer:nth-child(even) {
+  background-color: rgba(5, 4, 4, 0.912);
+}
+
+.songContainer > div > p {
+  padding: 2px 10px;
+}
+
+.songContainer:nth-child(even) > div > p:nth-child(2) {
+  background-color: rgba(182, 34, 34, 0.967);
+}
+
+.songContainer:nth-child(odd) > div > p:nth-child(2) {
+  background-color: #0a0808;
+}
+
+.playing {
+  background-color: #373638 !important;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 30;
+}
+
+.playingText {
+  background-color: rgba(182, 34, 34, 0.967) !important;
+}
+
+.xIcon {
+  width: 30px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 
 @media screen and (min-width: 1200px) {
@@ -353,6 +394,41 @@ a:active {
 
   .songContainer div {
     padding: 20px;
+  }
+
+  .songContainer:nth-child(1),
+.songContainer:nth-child(4),
+.songContainer:nth-child(5) {
+    background-color: rgba(182, 34, 34, 0.967);
+  }
+
+  .songContainer:nth-child(2),
+.songContainer:nth-child(3),
+.songContainer:nth-child(6) {
+    background-color: rgba(5, 4, 4, 0.912);
+  }
+
+  .songContainer:nth-child(even) > div > p:nth-child(2) {
+    background-color: rgba(182, 34, 34, 0.967);
+  }
+
+  .songContainer:nth-child(1) > div > p:nth-child(2),
+.songContainer:nth-child(4) > div > p:nth-child(2),
+.songContainer:nth-child(5) > div > p:nth-child(2) {
+    background-color: #0a0808;
+  }
+
+  .songContainer:nth-child(2) > div > p:nth-child(2),
+.songContainer:nth-child(3) > div > p:nth-child(2),
+.songContainer:nth-child(6) > div > p:nth-child(2) {
+    background-color: rgba(182, 34, 34, 0.967);
+  }
+
+  .playing {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 450px;
   }
 }
 

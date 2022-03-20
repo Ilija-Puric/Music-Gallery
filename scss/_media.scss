@@ -37,4 +37,37 @@
   .songContainer div {
     padding: 20px;
   }
+
+  .songContainer:nth-child(1),
+  .songContainer:nth-child(4),
+  .songContainer:nth-child(5) {
+    background-color: rgba(182, 34, 34, 0.967);
+  }
+
+  .songContainer:nth-child(2),
+  .songContainer:nth-child(3),
+  .songContainer:nth-child(6) {
+    background-color: rgba(5, 4, 4, 0.912);
+  }
+  .songContainer:nth-child(even) > div > p:nth-child(2) {
+    background-color: rgba(182, 34, 34, 0.967);
+  }
+
+  .songContainer:nth-child(1) > div > p:nth-child(2),
+  .songContainer:nth-child(4) > div > p:nth-child(2),
+  .songContainer:nth-child(5) > div > p:nth-child(2) {
+    background-color: color.$black-dark;
+  }
+  .songContainer:nth-child(2) > div > p:nth-child(2),
+  .songContainer:nth-child(3) > div > p:nth-child(2),
+  .songContainer:nth-child(6) > div > p:nth-child(2) {
+    background-color: rgba(182, 34, 34, 0.967);
+  }
+  .playing {
+    // background-color: rgb(56, 54, 54) !important;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 450px;
+  }
 }
