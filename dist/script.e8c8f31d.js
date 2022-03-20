@@ -138,7 +138,6 @@ try {
       p.style.filter = "grayscale(0)";
       p.style.backgroundColor = " rgba(0, 0, 0, 0.92)";
       p.style.borderColor = "#991825 ";
-      console.log(p);
     });
     concert.addEventListener("mouseleave", function () {
       var p = concert.querySelector("a>p");
@@ -158,7 +157,8 @@ try {
 }
 
 var songs = document.getElementsByClassName("songContainer");
-var buttonsPlay = document.querySelectorAll(".songContainer > div i");
+var songPlaying = document.getElementById("songToPlay");
+console.log(songPlaying);
 
 var _iterator2 = _createForOfIteratorHelper(songs),
     _step2;
@@ -167,17 +167,39 @@ try {
   var _loop2 = function _loop2() {
     var song = _step2.value;
     song.addEventListener("click", function () {
-      var button = song.getElementsByTagName("i")[0];
-      console.log(button);
-      console.log(song);
-      console.log("------------------");
+      for (var i = 0; i < songs.length; i++) {
+        var element = songs[i]; // console.log(element);
 
-      if (button.classList.contains("gg-play-button-o")) {
-        button.classList.remove("gg-play-button-o");
-        button.classList.add("gg-play-pause-o");
-      } else {
-        button.classList.add("gg-play-button-o");
-        button.classList.remove("gg-play-pause-o");
+        var button = element.getElementsByTagName("i")[0];
+
+        if (element == song) {
+          var songName = song.querySelector(" div > p:nth-child(2)").textContent.toLowerCase();
+          songName = songName.replace(/\s+/g, "");
+          console.log(songName); //     // console.log(song);
+          //     console.log("------------------");
+
+          songPlaying.src = "audio/" + songName + ".mp3";
+          console.log(songPlaying.src);
+          console.log(songPlaying); //     console.log(songPlaying);
+
+          console.log("ITS MY SONG");
+
+          if (button.classList.contains("gg-play-button-o")) {
+            button.classList.remove("gg-play-button-o");
+            button.classList.add("gg-play-pause-o"); // songPlaying.
+
+            songPlaying.play();
+            console.log("Play");
+          } else if (button.classList.contains("gg-play-pause-o")) {
+            console.log("Pause");
+            button.classList.add("gg-play-button-o");
+            button.classList.remove("gg-play-pause-o");
+            songPlaying.pause();
+          }
+        } else {
+          button.classList.add("gg-play-button-o");
+          button.classList.remove("gg-play-pause-o");
+        }
       }
     });
   };
@@ -218,7 +240,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53023" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61752" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

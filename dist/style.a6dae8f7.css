@@ -289,6 +289,10 @@ a:active {
   height: 200px;
   object-fit: cover;
 }
+.songContainer .bandName,
+.songContainer .songName {
+  text-align: left;
+}
 .songContainer .bandName {
   font-size: 0.9rem;
   font-weight: bolder;
@@ -308,6 +312,10 @@ a:active {
 
 .paused {
   filter: grayscale(0.8);
+}
+
+.songContainer > div > p:nth-child(2) {
+  background-color: red !important;
 }
 
 @media screen and (min-width: 1200px) {

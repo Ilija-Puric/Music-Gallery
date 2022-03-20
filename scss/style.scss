@@ -166,6 +166,10 @@ a:active {
     object-fit: cover;
   }
 
+  .bandName,
+  .songName {
+    text-align: left;
+  }
   .bandName {
     font-size: 0.9rem;
     font-weight: bolder;
@@ -185,6 +189,9 @@ a:active {
 
 .paused {
   filter: grayscale(0.8);
+}
+.songContainer > div > p:nth-child(2) {
+  background-color: red !important;
 }
 
 @import "media";

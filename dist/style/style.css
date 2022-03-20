@@ -1,8 +1,21 @@
 @import url("https://css.gg/chevron-double-down.css");
+@import url("https://css.gg/chevron-left.css");
+@import url("https://css.gg/chevron-right.css");
+@import url("https://css.gg/arrow-right-o.css");
+@import url("https://css.gg/play-button-o.css");
+@import url("https://css.gg/play-pause-o.css");
+@import url("https://css.gg/play-pause.css");
 @import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+.gg-play-button-o,
+.gg-play-pause-o {
+  width: 50px;
+}
+
 .slide {
-  -webkit-animation: slide-top 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate-reverse both;
-  animation: slide-top 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate-reverse both;
+  -webkit-animation: slide-top 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    infinite alternate-reverse both;
+  animation: slide-top 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite
+    alternate-reverse both;
 }
 
 @-webkit-keyframes slide-top {
@@ -44,7 +57,7 @@ h2 {
 main {
   height: 100vh;
   background-repeat: no-repeat;
-  background-image: url("../images/inspire.jpg");
+  background-image: url("/inspire.3500f696.jpg");
   background-position: center;
   background-size: cover;
   background-color: #0a0808;
@@ -76,7 +89,7 @@ main h1 + p {
 #aboutUs {
   height: 100vh;
   background-repeat: no-repeat;
-  background-image: url("../images/concert.jpg");
+  background-image: url("/concert.3b26bcdd.jpg");
   background-position: center;
   background-size: cover;
   background-color: #0a0808;
@@ -119,7 +132,7 @@ a:active {
 #events {
   height: 100vh;
   background-repeat: no-repeat;
-  background-image: url("../images/panda.jpg");
+  background-image: url("/panda.67e660b0.jpg");
   background-position: center;
   background-size: cover;
   background-color: #0a0808;
@@ -148,84 +161,176 @@ a:active {
   align-items: center;
   color: rgba(175, 172, 172, 0.474);
 }
-#events .event #concert1 {
-  background-repeat: no-repeat;
-  background-image: url("../images/concerts/sum41.jpg");
-  background-position: center;
-  background-size: cover;
-  background-color: #161719;
-  background-blend-mode: overlay;
-  background-attachment: fixed;
-  width: 100%;
-  height: 400px;
-}
-#events .event #concert2 {
-  background-repeat: no-repeat;
-  background-image: url("../images/concerts/greenday.jpg");
-  background-position: center;
-  background-size: cover;
-  background-color: #161719;
-  background-blend-mode: overlay;
-  background-attachment: fixed;
-  width: 100%;
-  height: 400px;
-}
-#events .event #concert3 {
-  background-repeat: no-repeat;
-  background-image: url("../images/concerts/theofspring.jpg");
-  background-position: center;
-  background-size: cover;
-  background-color: #161719;
-  background-blend-mode: overlay;
-  background-attachment: fixed;
-  width: 100%;
-  height: 400px;
-}
-#events .event #concert4 {
-  background-repeat: no-repeat;
-  background-image: url("../images/concerts/riseagainst.jpg");
-  background-position: center;
-  background-size: cover;
-  background-color: #161719;
-  background-blend-mode: overlay;
-  background-attachment: fixed;
-  width: 100%;
-  height: 400px;
-}
-#events .event #concert5 {
-  background-repeat: no-repeat;
-  background-image: url("../images/concerts/skillet.jpg");
-  background-position: center;
-  background-size: cover;
-  background-color: #161719;
-  background-blend-mode: overlay;
-  background-attachment: fixed;
-  width: 100%;
-  height: 400px;
-}
-#events .event #concert6 {
-  background-repeat: no-repeat;
-  background-image: url("../images/concerts/slipknot.jpg");
-  background-position: center;
-  background-size: cover;
-  background-color: #161719;
-  background-blend-mode: overlay;
-  background-attachment: fixed;
-  width: 100%;
-  height: 400px;
-}
 #events .event a > p {
   position: absolute;
   border: 2px solid rgba(182, 182, 182, 0.296);
   padding: 5px 10px;
+  position: relative;
+  z-index: 5;
 }
 
-@media screen and (min-width: 800px) {
+#concert1 {
+  background-repeat: no-repeat;
+  background-image: url("/sum41.60bc76da.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+  filter: grayscale(1);
+}
+#concert2 {
+  background-repeat: no-repeat;
+  background-image: url("/greenday.4c4e1c4a.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+  filter: grayscale(1);
+}
+#concert3 {
+  background-repeat: no-repeat;
+  background-image: url("/theofspring.bf38e068.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+  filter: grayscale(1);
+}
+#concert4 {
+  background-repeat: no-repeat;
+  background-image: url("/riseagainst.0ea2de7e.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+  filter: grayscale(1);
+}
+#concert5 {
+  background-repeat: no-repeat;
+  background-image: url("/skillet.24b401ff.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+  filter: grayscale(1);
+}
+#concert6 {
+  background-repeat: no-repeat;
+  background-image: url("/slipknot.9450eab1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #161719;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  width: 100%;
+  height: 400px;
+  filter: grayscale(1);
+}
+
+.concert:hover {
+  filter: grayscale(0) !important;
+  background-color: rgba(41, 41, 41, 0.445) !important;
+}
+
+#musicGallery {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+#musicGalleryContainer {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-image: url("/solo.f25fa6fa.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: #0a0808;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  color: #f8ecec;
+  height: fit-content !important;
+  padding: 20px;
+}
+
+.tittleGallery {
+  text-align: center;
+}
+
+.songContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(24, 24, 24, 0.385);
+  transition: background-color 0.3s linear;
+}
+.songContainer div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.songContainer .coverPic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+.songContainer .bandName,
+.songContainer .songName {
+  text-align: left;
+}
+.songContainer .bandName {
+  font-size: 0.9rem;
+  font-weight: bolder;
+}
+.songContainer .songName {
+  font-size: 1rem;
+}
+
+.songContainer:hover {
+  background-color: rgba(182, 34, 34, 0.967);
+  cursor: pointer;
+}
+
+.hide {
+  display: none !important;
+}
+
+.paused {
+  filter: grayscale(0.8);
+}
+
+.songContainer > div > p:nth-child(2) {
+  background-color: red !important;
+}
+
+@media screen and (min-width: 1200px) {
+  #musicGallery {
+    padding: 30px 12% !important;
+  }
+}
+@media screen and (min-width: 854px) {
   #aboutInfo + img {
     display: block;
     width: 100%;
     object-fit: cover;
-    height: 500px;
+    height: 100vh;
   }
 
   #aboutInfo {
@@ -233,6 +338,24 @@ a:active {
     max-width: 700px;
     min-width: 400px;
   }
+
+  .player {
+    width: 60%;
+    max-width: 1400px;
+  }
+  .player .center div > img {
+    height: 70vh;
+    max-height: 1400px;
+  }
+
+  #musicGallery {
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  }
+
+  .songContainer div {
+    padding: 20px;
+  }
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=/style.a6dae8f7.css.map */
