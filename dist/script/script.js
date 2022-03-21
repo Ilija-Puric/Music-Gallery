@@ -48,12 +48,7 @@ for (const song of songs) {
           //*Have to have this evil...*/
           if (
             songPlaying.src == "audio/" + songName + ".mp3" ||
-            songPlaying.src ==
-              "http://127.0.0.1:5500/audio/" + songName + ".mp3" ||
-            songPlaying.src ==
-              "http://127.0.0.1:8800/audio/" + songName + ".mp3" ||
-            songPlaying.src ==
-              "http://127.0.0.1:5501/audio/" + songName + ".mp3"
+            songPlaying.src.includes("audio/" + songName + ".mp3")
           ) {
             playSong(button);
             console.log("Play song ONE MORE TIME");
