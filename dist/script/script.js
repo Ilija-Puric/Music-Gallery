@@ -43,11 +43,7 @@ for (const song of songs) {
         button.nextElementSibling.classList.remove("hide");
 
         if (button.classList.contains("gg-play-button-o")) {
-          if (
-            songPlaying.src == "audio/" + songName + ".mp3" ||
-            songPlaying.src ==
-              "http://127.0.0.1:5500/audio/" + songName + ".mp3"
-          ) {
+          if (songPlaying.src == "audio/" + songName + ".mp3") {
             playSong(button);
             console.log("Play song ONE MORE TIME");
           } else {
@@ -109,5 +105,12 @@ function pauseSong(button) {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     songPlayingDiv.classList.remove("playing");
+
+    /*Needed logic for canceling button via ESC button on keyboard*/
+    let button = songPlayingDiv.children[1].children[2];
+    button.classList.add("gg-play-button-o");
+    button.classList.remove("gg-play-pause-o");
+    songPlaying.pause();
+    e.stopPropagation();
   }
 });
