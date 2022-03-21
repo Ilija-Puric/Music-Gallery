@@ -42,14 +42,25 @@ for (const song of songs) {
         console.log(songPlaying);
         button.nextElementSibling.classList.remove("hide");
 
+        console.log(songPlaying.src);
+        // break;
         if (button.classList.contains("gg-play-button-o")) {
-          if (songPlaying.src == "audio/" + songName + ".mp3") {
+          //*Have to have this evil...*/
+          if (
+            songPlaying.src == "audio/" + songName + ".mp3" ||
+            songPlaying.src ==
+              "http://127.0.0.1:5500/audio/" + songName + ".mp3" ||
+            songPlaying.src ==
+              "http://127.0.0.1:8800/audio/" + songName + ".mp3" ||
+            songPlaying.src ==
+              "http://127.0.0.1:5501/audio/" + songName + ".mp3"
+          ) {
             playSong(button);
             console.log("Play song ONE MORE TIME");
           } else {
             console.log(songName);
             songPlaying.src = "audio/" + songName + ".mp3";
-            songPlaying.currentTime = 2;
+            songPlaying.currentTime = 0.1;
             songPlaying.volume = 0.6;
             playSong(button);
             console.log("Play FIRST TIME");
@@ -61,7 +72,6 @@ for (const song of songs) {
       } else {
         button.classList.add("gg-play-button-o");
         button.classList.remove("gg-play-pause-o");
-        console.log("NOT THE RIGHT SHONG");
         // song.classList.remove("playing");
       }
     }
@@ -70,10 +80,10 @@ for (const song of songs) {
 
 for (const bt of buttonsExit) {
   bt.addEventListener("click", (e) => {
+    songPlayingDiv.children[1].children[1].classList.remove("playingText");
     songPlaying.src = "";
     songPlayingDiv.classList.remove("playing");
     /*Returning previously played song to default text color*/
-    songPlayingDiv.children[1].children[1].classList.toggle("playingText");
     bt.classList.add("hide");
     console.log("close window");
 
@@ -86,7 +96,6 @@ for (const bt of buttonsExit) {
 function playSong(button) {
   button.classList.remove("gg-play-button-o");
   button.classList.add("gg-play-pause-o");
-  console.log("PLAYING MY JAM SKR SKR");
   button.nextElementSibling.classList.remove("hide");
   songPlaying.play();
 }
@@ -105,8 +114,6 @@ function pauseSong(button) {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     songPlayingDiv.classList.remove("playing");
-
-    /*Needed logic for canceling button via ESC button on keyboard*/
     let button = songPlayingDiv.children[1].children[2];
     button.classList.add("gg-play-button-o");
     button.classList.remove("gg-play-pause-o");
