@@ -180,6 +180,7 @@ try {
           songPlayingDiv = song;
           song.querySelector(" div > p:nth-child(2)").classList.add("playingText");
           console.log(songPlaying);
+          button.nextElementSibling.classList.remove("hide");
 
           if (button.classList.contains("gg-play-button-o")) {
             if (songPlaying.src == "audio/" + songName + ".mp3" || songPlaying.src == "http://127.0.0.1:5500/audio/" + songName + ".mp3") {
@@ -188,6 +189,8 @@ try {
             } else {
               console.log(songName);
               songPlaying.src = "audio/" + songName + ".mp3";
+              songPlaying.currentTime = 2;
+              songPlaying.volume = 0.6;
               playSong(button);
               console.log("Play FIRST TIME");
             }
@@ -198,7 +201,8 @@ try {
           song.classList.add("playing");
         } else {
           button.classList.add("gg-play-button-o");
-          button.classList.remove("gg-play-pause-o"); // song.classList.remove("playing");
+          button.classList.remove("gg-play-pause-o");
+          console.log("NOT THE RIGHT SHONG"); // song.classList.remove("playing");
         }
       }
     });
@@ -220,8 +224,15 @@ try {
   var _loop3 = function _loop3() {
     var bt = _step3.value;
     bt.addEventListener("click", function (e) {
+      songPlaying.src = "";
       songPlayingDiv.classList.remove("playing");
+      /*Returning previously played song to default text color*/
+
+      songPlayingDiv.children[1].children[1].classList.toggle("playingText");
       bt.classList.add("hide");
+      console.log("close window");
+      var playButtons = document.querySelectorAll(".songContainer>div>i");
+      playButtons.forEach(addPlaying);
       e.stopPropagation();
     });
   };
@@ -238,8 +249,14 @@ try {
 function playSong(button) {
   button.classList.remove("gg-play-button-o");
   button.classList.add("gg-play-pause-o");
-  console.log(button.nextElementSibling.classList.remove("hide"));
+  console.log("PLAYING MY JAM SKR SKR");
+  button.nextElementSibling.classList.remove("hide");
   songPlaying.play();
+}
+
+function addPlaying(btn) {
+  btn.className = "gg-play-button-o";
+  console.log(btn);
 }
 
 function pauseSong(button) {
@@ -281,7 +298,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63385" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62027" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

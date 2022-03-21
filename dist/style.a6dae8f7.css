@@ -173,6 +173,10 @@ a:active {
   z-index: 5;
 }
 
+.concert {
+  transition: all 0.6s linear;
+}
+
 #concert1 {
   background-repeat: no-repeat;
   background-image: url("/sum41.60bc76da.jpg");

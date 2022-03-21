@@ -76,6 +76,8 @@ for (const bt of buttonsExit) {
   bt.addEventListener("click", (e) => {
     songPlaying.src = "";
     songPlayingDiv.classList.remove("playing");
+    /*Returning previously played song to default text color*/
+    songPlayingDiv.children[1].children[1].classList.toggle("playingText");
     bt.classList.add("hide");
     console.log("close window");
 
